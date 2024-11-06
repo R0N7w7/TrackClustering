@@ -26,7 +26,7 @@ public class CmeansController {
 
         TrackClusterer clusterer = new TrackClusterer(trackInstances);
 
-        ClusterResult clusterResult = clusterer.getClusterResult(trackInstances);
+        ClusterResult clusterResult = clusterer.getClusterResult(tracks);
 
         return clusterResult;
     }

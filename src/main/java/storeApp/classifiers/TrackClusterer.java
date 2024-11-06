@@ -2,6 +2,7 @@ package storeApp.classifiers;
 
 import storeApp.models.ClusterResult;
 import storeApp.models.Features;
+import storeApp.models.Track;
 import weka.clusterers.SimpleKMeans;
 import weka.core.Instance;
 import weka.core.Instances;
@@ -25,18 +26,18 @@ public class TrackClusterer {
         data.deleteAttributeAt(0);
     }
 
-    public ClusterResult getClusterResult(Instances originalData) throws Exception {
+    public ClusterResult getClusterResult(List<Track> trackData) throws Exception {
         kMeans.buildClusterer(data);
 
         List<Features> centroidsList = getFeatures();
 
-        List<List<String>> clusters = getClusters(originalData);
+        List<List<Track>> clusters = getClusters(trackData);
 
         return new ClusterResult(centroidsList, clusters);
     }
 
-    private List<List<String>> getClusters(Instances originalData) throws Exception {
-        List<List<String>> clusters = new ArrayList<>();
+    private List<List<Track>> getClusters(List<Track> trackData) throws Exception {
+        List<List<Track>> clusters = new ArrayList<>();
         for (int i = 0; i < kMeans.getNumClusters(); i++) {
             clusters.add(new ArrayList<>());
         }
@@ -44,8 +45,8 @@ public class TrackClusterer {
         for (int i = 0; i < data.numInstances(); i++) {
             Instance instance = data.instance(i);
             int clusterIndex = kMeans.clusterInstance(instance);
-            String trackName = originalData.instance(i).stringValue(0);
-            clusters.get(clusterIndex).add(trackName);
+            Track trackObject = trackData.get(i);
+            clusters.get(clusterIndex).add(trackObject);
         }
         return clusters;
     }

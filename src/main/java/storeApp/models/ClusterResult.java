@@ -4,9 +4,9 @@ import java.util.List;
 
 public class ClusterResult {
     private List<Features> centroids;
-    private List<List<String>> clusters;
+    private List<List<Track>> clusters;
 
-    public ClusterResult(List<Features> centroids, List<List<String>> clusters) {
+    public ClusterResult(List<Features> centroids, List<List<Track>> clusters) {
         this.centroids = centroids;
         this.clusters = clusters;
     }
@@ -15,7 +15,7 @@ public class ClusterResult {
         return centroids;
     }
 
-    public List<List<String>> getClusters() {
+    public List<List<Track>> getClusters() {
         return clusters;
     }
 }

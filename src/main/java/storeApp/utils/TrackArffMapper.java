@@ -35,7 +35,7 @@ public class TrackArffMapper {
     private void addInstance(Track track) {
         double[] values = new double[arffData.numAttributes()];
 
-        values[0] = arffData.attribute(0).addStringValue(track.getId());
+        values[0] = arffData.attribute(0).addStringValue(track.getName());
         values[1] = track.getFeatures().getValence();
         values[2] = track.getFeatures().getEnergy();
         values[3] = track.getFeatures().getDanceability();
