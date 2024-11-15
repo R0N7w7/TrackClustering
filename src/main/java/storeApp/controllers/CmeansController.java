@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/classify")
-@CrossOrigin(origins = "*")
+@CrossOrigin
 public class CmeansController {
 
     @PostMapping("/tracks")
