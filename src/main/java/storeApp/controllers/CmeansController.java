@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/classify")
-@CrossOrigin(origins = ("https://top50tracker.vercel.app"))
+@CrossOrigin(origins = {"https://top50tracker.vercel.app", "http://localhost:3000"})
 public class CmeansController {
 
     @PostMapping("/tracks")
