@@ -1,8 +1,9 @@
 package storeApp.models;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ClusterResult {
+public class ClusterResult implements Serializable {
     private List<Features> centroids;
     private List<List<Track>> clusters;
 

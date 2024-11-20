@@ -1,6 +1,8 @@
 package storeApp.models;
 
-public class Track {
+import java.io.Serializable;
+
+public class Track implements Serializable {
     private String name;
     private String artist;
     private String album;

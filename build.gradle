@@ -21,6 +21,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     // https://mvnrepository.com/artifact/nz.ac.waikato.cms.weka/weka-stable
     implementation 'nz.ac.waikato.cms.weka:weka-stable:3.8.6'
+    implementation files('src/libs/jade-4.6.0.jar')
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }

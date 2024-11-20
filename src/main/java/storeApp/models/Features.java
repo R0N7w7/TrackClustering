@@ -1,6 +1,8 @@
 package storeApp.models;
 
-public class Features {
+import java.io.Serializable;
+
+public class Features implements Serializable {
     private double energy;
     private double danceability;
     private double valence;

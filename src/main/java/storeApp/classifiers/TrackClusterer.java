@@ -7,12 +7,13 @@ import weka.clusterers.SimpleKMeans;
 import weka.core.Instance;
 import weka.core.Instances;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TrackClusterer {
+public class TrackClusterer implements Serializable {
 
     private SimpleKMeans kMeans;
     private Instances data;
@@ -24,13 +25,11 @@ public class TrackClusterer {
         kMeans.setNumClusters(5);
 
         data.deleteAttributeAt(0);
+        kMeans.buildClusterer(data);
     }
 
     public ClusterResult getClusterResult(List<Track> trackData) throws Exception {
-        kMeans.buildClusterer(data);
-
         List<Features> centroidsList = getFeatures();
-
         List<List<Track>> clusters = getClusters(trackData);
 
         return new ClusterResult(centroidsList, clusters);
